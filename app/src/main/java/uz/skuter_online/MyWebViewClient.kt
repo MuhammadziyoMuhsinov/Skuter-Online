@@ -1,16 +1,22 @@
 package uz.skuter_online
 
+import android.content.ActivityNotFoundException
+import android.content.Context
+import android.content.Intent
 import android.graphics.Bitmap
+import android.net.Uri
 import android.view.View
+import android.webkit.WebResourceRequest
 import android.webkit.WebView
 import android.webkit.WebViewClient
 import android.widget.LinearLayout
 import android.widget.ProgressBar
 import android.widget.Toast
+import androidx.core.content.ContextCompat.startActivity
 import uz.skuter_online.databinding.ActivityMainBinding
 
 
-class MyWebViewClient(val progressBar: ProgressBar, val linearLayout: LinearLayout) : WebViewClient() {
+class MyWebViewClient(val context: Context, val progressBar: ProgressBar, val linearLayout: LinearLayout) : WebViewClient() {
 
     override fun onPageStarted(view: WebView?, url: String?, favicon: Bitmap?) {
         // This method is called when the WebView starts loading a new page
@@ -39,4 +45,20 @@ class MyWebViewClient(val progressBar: ProgressBar, val linearLayout: LinearLayo
         linearLayout.visibility = View.VISIBLE
 
     }
+
+    override fun shouldOverrideUrlLoading(view: WebView?, url: String?): Boolean {
+        if (url != null && url.startsWith("https://t.me")) {
+            try {
+                val telegramIntent = Intent(Intent.ACTION_VIEW)
+                telegramIntent.data = Uri.parse(url)
+                context.startActivity(telegramIntent)
+                return true
+            } catch (e: ActivityNotFoundException) {
+                // Handle Telegram not installed
+                return false
+            }
+        }
+        return false
+    }
+
 }

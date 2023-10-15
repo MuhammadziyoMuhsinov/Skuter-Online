@@ -18,8 +18,10 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
 
+        binding.webView.settings.javaScriptEnabled = true
 
-        binding.webView.webViewClient = MyWebViewClient(binding.progressBar,binding.error)
+        binding.webView.webViewClient = MyWebViewClient(binding.root.context,binding.progressBar,binding.error)
+
         binding.webView.loadUrl("https://skuter-online.uz/") // Load a web page
         binding.retry.setOnClickListener {
             binding.webView.visibility = View.VISIBLE
@@ -31,5 +33,12 @@ class MainActivity : AppCompatActivity() {
 
 
 
+    }
+    override fun onBackPressed() {
+        if (binding.webView.canGoBack()) {
+            binding.webView.goBack()
+        } else {
+            super.onBackPressed()
+        }
     }
 }
