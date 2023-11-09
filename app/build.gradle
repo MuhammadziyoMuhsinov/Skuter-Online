@@ -11,8 +11,8 @@ android {
         applicationId "uz.skuter_online"
         minSdk 24
         targetSdk 33
-        versionCode 1
-        versionName "1.0"
+        versionCode 2
+        versionName "2.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -36,7 +36,15 @@ android {
 }
 
 dependencies {
+    //ssp = sp
+    implementation 'com.intuit.ssp:ssp-android:1.0.6'
 
+    //sdp = dp
+    implementation 'com.intuit.sdp:sdp-android:1.0.6'
+    implementation 'com.github.fornewid:neumorphism:0.3.0'
+    implementation 'com.airbnb.android:lottie:5.2.0'
+    implementation 'androidx.navigation:navigation-fragment:2.5.3'
+    implementation 'androidx.navigation:navigation-ui:2.5.3'
     implementation 'androidx.core:core-ktx:1.9.0'
     implementation 'androidx.appcompat:appcompat:1.6.1'
     implementation 'com.google.android.material:material:1.10.0'

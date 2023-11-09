@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">Skuter Online</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="info">Loyiha Yaratuvchilari Loyiha buyurtmachisi: Skuter_Uz arzon skuterlar savdo markazi. Loyiha muallifi: Mashrabjon Shokirjonov, No\'monjonov Abdusamad Loyihani yaratuvchisi: Secret Academy LC, MMS OFFICIAL Bosh Dasturchi: Mashrabjon Shokirjonov Bosh Dizayner: Moxichexra Ismonova Android dasturchi: Ilhomjon Ibragimov Android dasturchi: MuhammadZiyo Muhsinov</string>
 </resources>

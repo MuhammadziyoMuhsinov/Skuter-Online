@@ -1,5 +1,6 @@
 package uz.skuter_online
 
+import android.animation.Animator
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -17,28 +18,26 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-
-        binding.webView.settings.javaScriptEnabled = true
-
-        binding.webView.webViewClient = MyWebViewClient(binding.root.context,binding.progressBar,binding.error)
-
-        binding.webView.loadUrl("https://skuter-online.uz/") // Load a web page
-        binding.retry.setOnClickListener {
-            binding.webView.visibility = View.VISIBLE
-            binding.progressBar.visibility = View.VISIBLE
-            binding.error.visibility = View.GONE
-            binding.webView.reload()
-        }
-
+        binding.lottie.addAnimatorListener(object : Animator.AnimatorListener {
+            override fun onAnimationStart(p0: Animator) {}
+            override fun onAnimationEnd(p0: Animator) {binding.lottie.visibility = View.GONE}
+            override fun onAnimationCancel(p0: Animator) {}
+            override fun onAnimationRepeat(p0: Animator) {}
+        })
 
 
 
     }
     override fun onBackPressed() {
-        if (binding.webView.canGoBack()) {
-            binding.webView.goBack()
-        } else {
+        if (MyData.webView==null){
             super.onBackPressed()
+        }else{
+            if (MyData.webView!!.canGoBack()) {
+                MyData.webView!!.goBack()
+            } else {
+                super.onBackPressed()
+            }
         }
+
     }
 }

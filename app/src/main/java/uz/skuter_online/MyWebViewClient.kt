@@ -9,6 +9,7 @@ import android.view.View
 import android.webkit.WebResourceRequest
 import android.webkit.WebView
 import android.webkit.WebViewClient
+import android.widget.FrameLayout
 import android.widget.LinearLayout
 import android.widget.ProgressBar
 import android.widget.Toast
@@ -16,7 +17,7 @@ import androidx.core.content.ContextCompat.startActivity
 import uz.skuter_online.databinding.ActivityMainBinding
 
 
-class MyWebViewClient(val context: Context, val progressBar: ProgressBar, val linearLayout: LinearLayout) : WebViewClient() {
+class MyWebViewClient(val context: Context, val progressBar: FrameLayout, val linearLayout: LinearLayout) : WebViewClient() {
 
     override fun onPageStarted(view: WebView?, url: String?, favicon: Bitmap?) {
         // This method is called when the WebView starts loading a new page

@@ -6,48 +6,23 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <WebView
-        android:id="@+id/webView"
+    <fragment
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:id="@+id/container"
+        android:name="androidx.navigation.fragment.NavHostFragment"
+        app:defaultNavHost="true"
+        app:navGraph="@navigation/navigation"
         />
 
-    <ProgressBar
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/progress_bar"
-        android:layout_gravity="center"
-        android:backgroundTint="@color/white"
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/lottie"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:lottie_rawRes="@raw/lottie_scooter"
+        android:background="@color/my_green"
+        app:lottie_autoPlay="true"
         />
-
-    <LinearLayout
-        android:id="@+id/error"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:orientation="vertical"
-        android:visibility="invisible"
-        >
-        <ImageView
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_gravity="center"
-            android:textColor="@color/black"
-            android:layout_marginHorizontal="30sp"
-            android:src="@drawable/baseline_signal_wifi_connected_no_internet_4_24"
-            />
-        <Button
-            android:id="@+id/retry"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Qayta urinish"
-            android:layout_gravity="center"
-            android:textColor="@color/black"
-            android:layout_marginTop="10dp"
-            android:backgroundTint="#54FF5B"
-            />
-
-    </LinearLayout>
 
 
 
